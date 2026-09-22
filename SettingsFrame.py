@@ -18,8 +18,6 @@ class SettingsData:
         '''Class object for generating an HTTP/2 settings frame
         '''
         self.data = data
-        self.keys = list(data.keys())
-        self.values = list(data.values())
 
         if len(self.keys) == 0 or len(self.values) == 0:
             warnings.warn("Invalid settings object, missing keys or values. Using basic setup.", EmptySettings)
@@ -62,8 +60,8 @@ class SettingsData:
     
     def get_valid_names(self) -> list: return 
 
-    def get_keys(self) -> list: return self.keys
+    def get_keys(self) -> list: return list(self.data.keys())
     
-    def get_values(self) -> list: return self.values
-
+    def get_values(self) -> list: return list(self.data.values())
+        
     def get_value_from_key(self, key: str) -> bytes: return self.data.get(key)
