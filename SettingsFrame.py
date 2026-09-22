@@ -19,7 +19,7 @@ class SettingsData:
         '''
         self.data = data
 
-        if len(self.keys) == 0 or len(self.values) == 0:
+        if len(self.get_keys()) == 0 or len(self.get_values()) == 0:
             warnings.warn("Invalid settings object, missing keys or values. Using basic setup.", EmptySettings)
             self.data = self.__get_default__()
 
