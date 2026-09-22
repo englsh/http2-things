@@ -58,7 +58,7 @@ class SettingsData:
 
         return dataLength + frameType + additionalFlags + streamIdentifier + data
     
-    def get_valid_names(self) -> list: return 
+    def get_valid_names(self) -> list: return list(self.SETTING_INFO.keys())
 
     def get_keys(self) -> list: return list(self.data.keys())
     
