@@ -43,8 +43,8 @@ class SettingsData:
 
     def to_bytes(self) -> bytes:
         frameType = bytes.fromhex("04") # 04 indicates the SETTINGS frame
-        additionalFlags = bytes.fromhex("00") # no additional flags.
-        streamIdentifier = bytes.fromhex("00000000") # no stream identifier needed as this request is part of the connection.
+        additionalFlags = bytes(1) # no additional flags.
+        streamIdentifier = bytes(4) # no stream identifier needed as this request is part of the connection. Use bytes(4) due to this.
 
         data = b''
 
